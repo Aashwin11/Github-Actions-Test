@@ -33,14 +33,7 @@ jobs:
       run: ./gradlew build
     - name: List built JARs
       run: ls -lh build/libs/
-    - name: Build with Gradle
-      run: ./gradlew build
-
-    - name: Upload JAR
-      uses: actions/upload-artifact@v3
-      with:
-        name: app-jar
-        path: build/libs/java-app-1.0-SNAPSHOT.jar
+ 
 # Build and push the image to the AWS ECR
   build-image-push:
 
