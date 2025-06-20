@@ -31,6 +31,8 @@ jobs:
 
     - name: Build with Gradle
       run: ./gradlew build
+    - name: List built JARs
+      run: ls -lh build/libs/
 # Build and push the image to the AWS ECR
   build-image-push:
 
