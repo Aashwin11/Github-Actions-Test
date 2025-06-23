@@ -34,7 +34,7 @@ jobs:
     - name: List built JARs
       run: ls -lh build/libs/
     - name: Upload JAR artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: java-app-jar
         path: build/libs/java-app-1.0-SNAPSHOT.jar
@@ -48,7 +48,7 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v2
       - name: Download JAR artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: java-app-jar
           path: build/libs/
