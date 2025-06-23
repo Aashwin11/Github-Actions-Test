@@ -33,6 +33,11 @@ jobs:
       run: ./gradlew build
     - name: List built JARs
       run: ls -lh build/libs/
+    - name: Upload JAR artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: java-app-jar
+        path: build/libs/java-app-1.0-SNAPSHOT.jar
  
 # Build and push the image to the AWS ECR
   build-image-push:
@@ -42,6 +47,11 @@ jobs:
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
+      - name: Download JAR artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: java-app-jar
+          path: build/libs/
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
